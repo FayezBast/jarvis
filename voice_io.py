@@ -16,18 +16,15 @@ class VoiceIO:
         self.microphone = sr.Microphone()
         self.eleven_client = None
         
-        # Audio queue for faster processing
         self.audio_queue = queue.Queue()
         self.audio_thread = None
         self.is_playing = False
         self.current_audio_id = 0
-        
-        # Voice listening state
+    
         self.is_listening = False
         self.listen_timeout = 5  # seconds to wait for speech
-        self.phrase_timeout = 10  # max phrase length
+        self.phrase_timeout = 10 
         
-        # Initialize pygame mixer for audio playback
         try:
             pygame.mixer.pre_init(frequency=22050, size=-16, channels=2, buffer=512)
             pygame.mixer.init()
@@ -37,7 +34,7 @@ class VoiceIO:
             
         if api_key:
             try:
-                # Initialize the main client object
+
                 self.eleven_client = ElevenLabs(api_key=api_key)
                 log_info("ElevenLabs client initialized successfully.")
             except Exception as e:

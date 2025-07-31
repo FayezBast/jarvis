@@ -7,7 +7,6 @@ import pygame
 
 
 
-# Import your custom modules
 from jarvis_core import JarvisCore
 from voice_io import VoiceIO
 from gui import App
